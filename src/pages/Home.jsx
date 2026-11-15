@@ -125,7 +125,7 @@ export function Home() {
 
   return (
     <main id="main" className="overflow-hidden" data-nav="dark">
-      <InkLayer ref={ref} shape="/shapes/home.svg" className="min-h-svh text-ink">
+      <InkLayer ref={ref} shape="shapes/home.svg" className="min-h-svh text-ink">
         <HomeContent />
       </InkLayer>
     </main>

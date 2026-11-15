@@ -36,7 +36,7 @@ function Hero() {
   const { scrollTo } = useSmoothScroll();
   return (
     <section aria-labelledby="about-title" className="relative bg-cream text-ink" data-nav="dark">
-      <InkLayer shape="/shapes/about.svg" invert={false} className="min-h-svh">
+      <InkLayer shape="shapes/about.svg" invert={false} className="min-h-svh">
         <div className="site-grid min-h-svh grid-rows-[1fr_auto_auto] gap-y-8 pt-24 pb-site">
           <h1 id="about-title" className="col-span-12 self-center text-h1" data-split="">
             <span aria-hidden="true" className="indent-col4" />
@@ -373,7 +373,7 @@ function UseCase() {
 function Contact() {
   return (
     <section id="contact" aria-labelledby="contact-title" className="relative bg-dark text-cream" data-nav="light">
-      <InkLayer shape="/shapes/contact.svg" invert={false} className="pb-sec-md">
+      <InkLayer shape="shapes/contact.svg" invert={false} className="pb-sec-md">
         <Strip label="Contact" n={6} />
         <div className="site-grid gap-y-12 pt-sec-lg">
           <div className="col-span-12 md:col-span-5">

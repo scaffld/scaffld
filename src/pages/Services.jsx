@@ -263,7 +263,7 @@ export function Services() {
 
   return (
     <main id="main" className="relative" data-nav="dark">
-      <InkLayer shape="/shapes/services.svg" invert={false} className={view === "wheel" ? "h-svh" : "min-h-svh"}>
+      <InkLayer shape="shapes/services.svg" invert={false} className={view === "wheel" ? "h-svh" : "min-h-svh"}>
         <h1 className="sr-only">Services</h1>
         <div className="site-x absolute top-[11vh] left-0 z-10 text-main" role="group" aria-label="View">
           {["wheel", "list"].map((v, i) => (
