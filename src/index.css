@@ -1,0 +1,260 @@
+@import "tailwindcss";
+
+/* ---------- Brand fonts (subset woff2 in /public/fonts) ---------- */
+@font-face {
+  font-family: "Befafes";
+  src: url("/fonts/Befafes-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SF UI Display";
+  src: url("/fonts/SFUIDisplay-Light.woff2") format("woff2");
+  font-weight: 300 500;
+  font-style: normal;
+  font-display: swap;
+}
+/* Logo wordmark only */
+@font-face {
+  font-family: "Stamp RSPK";
+  src: url("/fonts/StampRSPK-logo.woff2") format("woff2");
+  font-display: swap;
+}
+
+/*
+ * Tokens. Type scale and spacing interpolate linearly between a 320px (20rem)
+ * and 1920px (120rem) viewport, matching the reference recon (RECON.md §2).
+ * fluid(min, max) = clamp(min, min + (max - min) * (100vw - 20rem) / 100, max)
+ */
+@theme {
+  /* Brand */
+  --color-primary: #ed3140; /* majority surface */
+  --color-dark: #2a2424; /* ink */
+  --color-light: #cbb99e;
+  /* Supporting */
+  --color-cream: #f7f2e9;
+  --color-cream-2: #e6ded2; /* slider buttons (reference grey #d9d9d9) */
+  --color-ink: #140f0f; /* small text on red: 4.6:1 (dark #2a2424 is 3.7:1, large text only) */
+  --color-primary-shade: #d42735; /* letterforms on red */
+  --color-dark-shade: #362e2e; /* letterforms on ink */
+
+  /* --font-display: "Befafes", ui-sans-serif, system-ui, sans-serif; */
+  --font-display: "SF UI Display", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "SF UI Display", ui-sans-serif, system-ui, sans-serif;
+  --font-stamp: "Stamp RSPK", "SF UI Display", sans-serif;
+
+  --text-display: clamp(
+    2.3125rem,
+    calc(2.3125rem + 5.1875 * ((100vw - 20rem) / 100)),
+    7.5rem
+  );
+  --text-display--line-height: 1;
+  --text-display--letter-spacing: -0.02em;
+  --text-h1: clamp(
+    1.5rem,
+    calc(1.5rem + 4.125 * ((100vw - 20rem) / 100)),
+    5.625rem
+  );
+  --text-h1--line-height: 1;
+  --text-h1--letter-spacing: -0.02em;
+  --text-h2: clamp(
+    1.25rem,
+    calc(1.25rem + 3 * ((100vw - 20rem) / 100)),
+    4.25rem
+  );
+  --text-h2--line-height: 1;
+  --text-h2--letter-spacing: -0.02em;
+  --text-h3: clamp(
+    1.1875rem,
+    calc(1.1875rem + 1.3125 * ((100vw - 20rem) / 100)),
+    2.5rem
+  );
+  --text-h3--line-height: 1.1;
+  --text-h3--letter-spacing: -0.02em;
+  --text-large: clamp(
+    0.875rem,
+    calc(0.875rem + 1.125 * ((100vw - 20rem) / 100)),
+    2rem
+  );
+  --text-large--line-height: 1.3;
+  --text-large--letter-spacing: -0.02em;
+  --text-medium: clamp(
+    0.875rem,
+    calc(0.875rem + 0.625 * ((100vw - 20rem) / 100)),
+    1.5rem
+  );
+  --text-medium--line-height: 1.3;
+  --text-main: clamp(
+    0.8125rem,
+    calc(0.8125rem + 0.1875 * ((100vw - 20rem) / 100)),
+    1rem
+  );
+  --text-main--line-height: 1.25;
+  --text-main--letter-spacing: -0.01em;
+  --text-small: clamp(
+    0.6875rem,
+    calc(0.6875rem + 0.1625 * ((100vw - 20rem) / 100)),
+    0.85rem
+  );
+  --text-small--line-height: 1.2;
+
+  /* Page margin (measured 12px @1440, ~10px @390) and section rhythm */
+  --spacing-site: clamp(
+    0.625rem,
+    calc(0.625rem + 0.125 * ((100vw - 20rem) / 70)),
+    0.75rem
+  );
+  --spacing-sec-sm: clamp(
+    1.25rem,
+    calc(1.25rem + 1.25 * ((100vw - 20rem) / 100)),
+    2.5rem
+  );
+  --spacing-sec: clamp(
+    2.5rem,
+    calc(2.5rem + 2.5 * ((100vw - 20rem) / 100)),
+    5rem
+  );
+  --spacing-sec-md: clamp(
+    3.5rem,
+    calc(3.5rem + 3.5 * ((100vw - 20rem) / 100)),
+    7rem
+  );
+  --spacing-sec-lg: clamp(
+    5rem,
+    calc(5rem + 5 * ((100vw - 20rem) / 100)),
+    10rem
+  );
+
+  --ease-out-3: cubic-bezier(0.215, 0.61, 0.355, 1); /* power3.out */
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    background: var(--color-primary);
+  }
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  body {
+    @apply bg-primary font-sans text-main text-ink antialiased;
+    font-weight: 300;
+  }
+  ::selection {
+    @apply bg-dark text-cream;
+  }
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+  /* SF UI Display ships one weight — never fake-bold it */
+  strong,
+  b {
+    font-weight: inherit;
+  }
+  sup {
+    font-size: 0.55em;
+    vertical-align: 0.9em;
+    line-height: 0;
+    margin-left: 0.08em;
+  }
+}
+
+@layer components {
+  /* 12-column site grid: 1rem gutter, fluid page margin, full bleed */
+  .site-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 1rem;
+    padding-inline: var(--spacing-site);
+  }
+  .site-x {
+    padding-inline: var(--spacing-site);
+  }
+
+  /*
+   * First line starts at grid column 4 (reference statements). An empty inline
+   * element, not text-indent (inherits into SplitText's inline-block words) or
+   * ::before (lands on its own line once SplitText makes lines blocks).
+   */
+  .indent-col4 {
+    display: inline-block;
+    width: calc(25vw - 0.5 * var(--spacing-site) + 0.25rem);
+  }
+
+  /* Hairline rule that inherits the text colour */
+  .hairline {
+    border-top: 1px solid color-mix(in srgb, currentColor 40%, transparent);
+  }
+
+  /* Underline that draws in on hover/focus */
+  .link-u {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.5s var(--ease-out-3);
+  }
+  .link-u:hover,
+  .link-u:focus-visible,
+  .link-u[aria-current="page"] {
+    background-size: 100% 1px;
+  }
+
+  /* Giant letterform layer — the same image paints the shape and masks the inverted text copy */
+  .shape-bg,
+  .shape-mask {
+    position: absolute;
+    inset: 0;
+    background-repeat: no-repeat;
+    --pos: calc(50% + var(--sx, 0px)) calc(var(--py, 50%) + var(--sy, 0px));
+  }
+  .shape-bg {
+    background-image: var(--shape);
+    background-size: var(--fit, cover);
+    background-position: var(--pos);
+  }
+  .shape-mask {
+    -webkit-mask-image: var(--shape);
+    mask-image: var(--shape);
+    -webkit-mask-size: var(--fit, cover);
+    mask-size: var(--fit, cover);
+    -webkit-mask-position: var(--pos);
+    mask-position: var(--pos);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+}
+::-webkit-scrollbar {
+  width: 0;
+}
+/* Accordion height animation without measuring */
+.acc {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.6s var(--ease-out-3);
+}
+.acc[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+.acc > div {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
