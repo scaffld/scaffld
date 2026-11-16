@@ -45,8 +45,8 @@ function HomeContent() {
             ({brand.year})
           </p>
           <div className="col-span-12 mt-8 md:hidden" data-hero-fade="">
-            <ArrowLink to="/services" className="font-display text-h1">
-              Explore services
+            <ArrowLink to="/projects" className="font-display text-h1">
+              See projects
             </ArrowLink>
             <hr className="hairline mt-8 border-0" />
           </div>
@@ -69,7 +69,7 @@ function HomeContent() {
         <ul>
           {services.map((s) => (
             <li key={s.key}>
-              <Link to={`/services#${s.key}`} className="link-u inline-block py-1">
+              <Link to="/about#services" className="link-u inline-block py-1">
                 ({s.items.length}) {s.short}
               </Link>
             </li>

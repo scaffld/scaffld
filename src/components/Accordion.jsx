@@ -21,7 +21,7 @@ export function Accordion({ items, defaultOpen = 0, className = "" }) {
                 aria-expanded={isOpen}
                 aria-controls={`${id}-p`}
                 onClick={() => setOpen(isOpen ? -1 : i)}
-                className="flex w-full items-baseline justify-between gap-6 px-[clamp(1rem,1.7vw,1.5rem)] py-[clamp(0.9rem,1.6vw,1.4rem)] text-left"
+                className="cursor-pointer flex w-full items-baseline justify-between gap-6 px-[clamp(1rem,1.7vw,1.5rem)] py-[clamp(0.9rem,1.6vw,1.4rem)] text-left"
               >
                 <span className="text-h3">
                   {it.count != null && <span className="font-sans">({it.count}) </span>}

@@ -38,7 +38,7 @@ export function SmoothScroll({ children }) {
         el.setAttribute("tabindex", "-1");
         el.focus({ preventScroll: true });
       },
-      /** Single-screen pages (Services wheel) take over wheel/touch input. */
+      /** Single-screen pages (Projects carousel) take over wheel/touch input. */
       lock() {
         lenisRef.current?.stop();
         document.documentElement.style.overflow = "hidden";

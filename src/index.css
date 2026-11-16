@@ -29,14 +29,14 @@
  */
 @theme {
   /* Brand */
-  --color-primary: #ed3140; /* majority surface */
+  --color-primary: #b81d0c; /* majority surface */
   --color-dark: #2a2424; /* ink */
-  --color-light: #cbb99e;
+  --color-light: #dcd7d4;
   /* Supporting */
   --color-cream: #f7f2e9;
   --color-cream-2: #e6ded2; /* slider buttons (reference grey #d9d9d9) */
   --color-ink: #140f0f; /* small text on red: 4.6:1 (dark #2a2424 is 3.7:1, large text only) */
-  --color-primary-shade: #d42735; /* letterforms on red */
+  --color-primary-shade: #a5170a; /* letterforms on red */
   --color-dark-shade: #362e2e; /* letterforms on ink */
 
   /* --font-display: "Befafes", ui-sans-serif, system-ui, sans-serif; */

@@ -116,7 +116,7 @@ function ServicesBlock() {
           ({services.length})
         </p>
       </div>
-      <div className="site-x">
+      <div className="site-x cursor-pointer">
         <Accordion items={items} defaultOpen={0} />
       </div>
     </section>
@@ -349,8 +349,8 @@ function UseCase() {
       <div className="site-x">
         <div className="flex items-center gap-4 pb-sec text-ink" data-reveal="">
           <span aria-hidden="true" className="size-5 rounded-full bg-current" />
-          <ArrowLink to="/services" className="font-display text-h2">
-            Explore the services
+          <ArrowLink to="/projects" className="font-display text-h2">
+            See selected projects
           </ArrowLink>
         </div>
         <div className="relative">

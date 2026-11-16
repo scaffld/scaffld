@@ -2,6 +2,11 @@
  * SCAFFLD site content — all copy and contact data, separate from presentation.
  * No prices are published on the site; quotes are given after consultation.
  */
+import okthaHero from "@/assets/oktha/hero.webp";
+import reigniteHero from "@/assets/redistrict/hero.webp";
+import restaurantHero from "@/assets/restaurant/hero.webp";
+import savannaHero from "@/assets/thesavanna/hero.webp";
+
 const WHATSAPP_NUMBER = "6285123637703";
 export const WHATSAPP_DISPLAY = "+62 851-2363-7703";
 
@@ -17,10 +22,49 @@ export const brand = {
   principle: "Good websites. Clear solutions. No unnecessary complexity.",
 };
 
+/**
+ * Selected work, shown in the Projects carousel. Images live in src/assets so Vite
+ * fingerprints them; 16:9 hero captures fit the landscape cards without cropping.
+ */
+export const projects = [
+  {
+    key: "oktha",
+    title: "Oktha Viano",
+    type: "Portfolio website",
+    place: "Malang",
+    image: okthaHero,
+    description: "A personal portfolio for a video editor — editorial type, a calm grid and a works archive that lets the reels speak.",
+  },
+  {
+    key: "reignite",
+    title: "Reignite District",
+    type: "Brand & catalog website",
+    place: "Malang",
+    image: reigniteHero,
+    description: "A streetwear label with a field-manual attitude: oversized type, halftone imagery and a browsable product catalog.",
+  },
+  {
+    key: "restaurant",
+    title: "Restaurant",
+    type: "Restaurant website",
+    place: "East Java",
+    image: restaurantHero,
+    description: "Seasonal plates, long evenings — a dark, appetite-first site with the menu, events and table reservations up front.",
+  },
+  {
+    key: "savanna",
+    title: "The Savanna",
+    type: "Property website",
+    place: "Batu",
+    image: savannaHero,
+    description: "Highland villas in Batu, bilingual ID/EN, with villa detail pages and an investment section for buyers.",
+  },
+];
+
 /** Primary navigation (routes). `count` renders as a superscript, like an index. */
 export const nav = [
   { to: "/", label: "Index" },
-  { to: "/services", label: "Services", count: 5 },
+  { to: "/projects", label: "Projects", count: projects.length },
   { to: "/about", label: "About" },
 ];
 
